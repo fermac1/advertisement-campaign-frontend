@@ -1,1 +1,3 @@
-# advertisement-campaign-frontend
+- npm install
+
+- npm run dev

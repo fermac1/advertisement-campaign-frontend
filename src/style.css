@@ -1,0 +1,163 @@
+.form-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.form-container input {
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #0056b3;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.error {
+  color: red;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 15px;
+}
+
+.heading {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 600;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+table th,
+table td {
+  padding: 12px 15px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+table th {
+  background-color: #f9f9f9;
+  color: #000;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.link-btn {
+  background-color: #0056b3;
+
+}
+.link-btn a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+}
+
+.campaign-list-container {
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+.campaign-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.campaign-item {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+}
+  
+button {
+  padding: 8px 16px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+.empty{
+  text-align: center;
+}
+.creative-links {
+  display: block;
+  margin: 5px 0;
+}
+.pagination-controls{
+  display: flex;
+  justify-content: space-between;
+}
+.pagination-controls .btn-container button {
+  margin: auto 10px;
+}
+
+  /* spinner */
+.spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; 
+}
+
+.spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #0056b3; 
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+  
