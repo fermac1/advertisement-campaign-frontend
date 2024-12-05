@@ -69,8 +69,9 @@ const CampaignForm = () => {
       }
       setLoading(true)
 
+
       try {
-        const response = await axios.post(`${config.apiUrl}/campaigns`, form, {
+          const response = await axios.post( `${config.apiUrl}/campaigns`, form, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
@@ -84,7 +85,6 @@ const CampaignForm = () => {
           daily_budget: '',
           creatives: [],
         });
-      
       } catch (error) {
         console.error('Error creating campaign:', error);
       }finally {

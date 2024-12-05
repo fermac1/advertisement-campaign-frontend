@@ -4,6 +4,8 @@ import '../style.css';
 import config from '../config';
 import { Link } from 'react-router-dom';
 import Modal from './Modal';
+import { AppContext } from '../contexts/AppProvider';
+import { useContext } from 'react';
 
 const CampaignList = () => {
   const [campaigns, setCampaigns] = useState([]);
@@ -13,6 +15,8 @@ const CampaignList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(false)
+
+  const { setData } = useContext(AppContext);
 
   useEffect(() => {
    
@@ -66,44 +70,46 @@ const CampaignList = () => {
               <th>Total Budget (USD)</th>
               <th>Daily Budget (USD)</th>
               <th>Creatives</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
             
               {campaigns.length === 0 ? (
-                <tr><td colSpan="6" className='empty'>No campaigns found</td></tr>
+                <tr><td colSpan="7" className='empty'>No campaigns found</td></tr>
               ) : (
                 campaigns.map((campaign) => (
                   <tr key={campaign.id} className="campaign-item">
                     <td>{campaign.name}</td>
                     <td>{campaign.from}</td>
-                <td>{campaign.to}</td>
-                <td>{campaign.total_budget}</td>
-                <td>{campaign.daily_budget}</td>
-                <td>
+                    <td>{campaign.to}</td>
+                    <td>{campaign.total_budget}</td>
+                    <td>{campaign.daily_budget}</td>
+                    <td>
                   
-                  {campaign.creatives && campaign.creatives.length > 0 ? (
-                       
-                        <div>
-                          {campaign.creatives.map((creative, index) => (
+                    {campaign.creatives && campaign.creatives.length > 0 ? (
+                        
+                          <div>
+                            {campaign.creatives.map((creative, index) => (
 
-                            <a href={`${config.url}/storage/${creative.path}`}
-                            className='creative-links'
-                            key={index}
-                            onClick={(e) => {
-                              e.preventDefault();
-                              openModal(creative.path);
-                            }}
-                          > {creative.file_name}
-                          
-                          </a>
-                          ))}
-                        </div>
-                      
-                    ) : (
-                      <p>No creatives available for this campaign.</p>
-                    )}
-                </td>
+                              <a href={`${config.url}/storage/public/creatives/${creative.path}`}
+                              className='creative-links'
+                              key={index}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                openModal(creative.path);
+                              }}
+                            > {creative.file_name}
+                            
+                            </a>
+                            ))}
+                          </div>
+                        
+                      ) : (
+                        <p>No creatives available for this campaign.</p>
+                      )}
+                  </td>
+                <td><Link to={`/edit/${campaign.id}`} onClick={()=>{setData(campaign)}}>Edit</Link></td>
               </tr>
                 ))
               )}
